@@ -9,10 +9,8 @@ from django.contrib.auth.models import User
 from .serializers import BookingSerializer, MenuSerializer, UserSerializer
 
 
-# Create your views here.
-# Create view to render index.html
-# def index(request):
-#     return render(request, 'index.html')
+def index(request):
+    return render(request, 'index.html')
 
 
 class MenuItemsView(generics.ListCreateAPIView):
@@ -33,3 +31,4 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
 class BookingViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedWithMessage]
     queryset = Booking.objects.all()
+    serializer_class = BookingSerializer

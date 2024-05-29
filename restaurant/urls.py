@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
-from . import views
+from .import views
 
 router = DefaultRouter()
 router.register(r'restaurant/booking',
@@ -10,7 +10,6 @@ router.register(r'restaurant/booking',
 
 urlpatterns = [
     path('', include(router.urls)),
-    # path('', views.index, name='index'),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
     # path('restaurant/', views.index),
